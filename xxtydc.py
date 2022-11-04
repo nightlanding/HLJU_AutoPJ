@@ -1,16 +1,4 @@
-import time
-from selenium import webdriver
-
-
-def start(username, password):
-    driver = webdriver.Chrome()
-    driver.get('http://jxpj.hlju.edu.cn/index.php?c=index&a=pager&id=43&kcdm=1412016281&kcxh=02&zgh=2009002&term=2020-2021-2')
-    driver.implicitly_wait(10)
-    driver.find_element_by_id("username").send_keys(username)
-    driver.find_element_by_id("password").send_keys(password)
-    time.sleep(1)
-    driver.find_element_by_id("dlan").click()
-    driver.find_element_by_link_text("学习体验调查与评教").click()
+def start(driver):
     pingkes = driver.find_elements_by_xpath(
         "/html/body/div[4]/div[2]/table/tbody/tr[*]/td[7]/a")
     length = len(pingkes)
